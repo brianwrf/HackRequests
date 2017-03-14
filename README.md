@@ -25,7 +25,7 @@ import re
 import time
 from lib.hack_requests import HackRequests
 
-request_info = {}
+request_info = {} # It is a dict which contains all HTTP headers and data, the format is similar as Burp request.
 request_info['protocol'] = 'http'
 request_info['host'] = 'example.com'
 request_info['path'] = '/iam/the/url?para=PARA'
@@ -34,7 +34,7 @@ request_info['accept'] = '*/*'
 request_info['accept_language'] = 'en-US,en;q=0.5'
 request_info['accept_encoding'] = 'gzip, deflate'
 request_info['referer'] = "http://example.com/"
-request_info['cookie'] = "PHPSESSID=look_at_me_i_am_the_sessionid"
+request_info['cookie'] = "PHPSESSID=look_at_me_i_am_the_sessionid; Second_Cookie=i_am_second_cookie"
 request_info['post_data'] = "para1=PARA1&para2=PARA2"
 
 # Send GET request by using PhantomJS
@@ -43,9 +43,6 @@ r_get_p = HackRequests(request_info, 'PHANTOMJS').get_request()
 # Send GET request by using Requests
 r_get_r = HackRequests(request_info).get_request()
 
-# Send GET request by using PhantomJS
-r_post_p = HackRequests(request_info, 'PHANTOMJS').post_request()
-
-# Send GET request by using Requests
+# Send POST request by using Requests
 r_post_r = HackRequests(request_info).post_request()
 ```
