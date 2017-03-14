@@ -23,7 +23,7 @@ Modify `self.executable_path` to the path of PhantomJS binary, e.g. `self.execut
 import requests
 import re
 import time
-from lib.hack_requests import HackRequests
+from hack_requests import HackRequests
 
 request_info = {} # It is a dict which contains all HTTP headers and data, the format is similar as Burp request.
 request_info['protocol'] = 'http'
