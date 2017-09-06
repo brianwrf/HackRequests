@@ -85,10 +85,17 @@ class HackRequests(object):
         return cookies
 
     def get_post_data(self):
-        post_data = {}
-        for line in self.request_info['post_data'].split('&'):
-            name, value = line.strip().split('=', 1) # 1 means only split one time
-            post_data[name] = value
+        if not self.request_info['content_type']:
+            post_data = ""
+        elif "application/x-www-form-urlencoded" in self.request_info['content_type']:
+            post_data = {}
+            for line in self.request_info['post_data'].split('&'):
+                name, value = line.strip().split('=', 1) # 1 means only split one time
+                post_data[name] = value
+        elif "application/json" in self.request_info['content_type']:
+            post_data = json.dumps(self.request_info['post_data'])
+        else:
+            post_data = ""
 
         return post_data
 
