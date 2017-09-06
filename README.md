@@ -28,6 +28,7 @@ from hack_requests import HackRequests
 request_info = {} # It is a dict which contains all HTTP headers and data, the format is similar as Burp request.
 request_info['protocol'] = 'http'
 request_info['host'] = 'example.com'
+request_info['port'] = 80
 request_info['path'] = '/iam/the/url?para=PARA'
 request_info['user_agent'] = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:45.0) Gecko/20100101 Firefox/45.0'
 request_info['accept'] = '*/*'
