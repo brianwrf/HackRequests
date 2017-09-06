@@ -15,7 +15,7 @@ class HackRequests(object):
     def __init__(self, request_info, lib = 'REQUESTS'):
         self.request_info = request_info
         self.lib = lib
-        self.url = "{}://{}{}".format(self.request_info['protocol'], self.request_info['host'], self.request_info['path'])
+        self.url = "{}://{}:{}{}".format(self.request_info['protocol'], self.request_info['host'], self.request_info['port'], self.request_info['path'])
         self.TIME_OUT = 10 # timeout of requests
 
         # configurations for PhantomJS
