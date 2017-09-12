@@ -28,6 +28,7 @@ class HackRequests(object):
         self.executable_path='<The Path of PhantomJS binary>'
         self.service_args=[]
         self.service_args.append('--load-images=no')
+        self.service_args.append('--local-url-access=no') # Don't allow to load local file
         self.service_args.append('--disk-cache=yes')
         self.service_args.append('--ignore-ssl-errors=true')
         self.driver = self.init_phantomjs_driver(executable_path = self.executable_path, service_args = self.service_args)
